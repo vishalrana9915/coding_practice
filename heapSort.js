@@ -65,6 +65,7 @@ class MaxHeap {
     console.log({ currentIndex, parentIndex });
     // once we have to parent index we do the comparision
     while (
+      parentIndex >= 0 &&
       currentIndex > 0 &&
       this.value[currentIndex] > this.value[parentIndex]
     ) {
@@ -164,3 +165,7 @@ class MaxHeap {
 let heap = new MaxHeap();
 heap.buildHeap([12, 23, 5, 56, 34, 567, 87, 45, 3, 56, 7, 34, 7]);
 heap.printheap();
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+
+console.log(heap.extractMax());
