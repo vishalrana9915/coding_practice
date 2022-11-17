@@ -12,6 +12,8 @@ const binarySearch = (array, element) => {
   while (index == -1) {
     if (array[max] === element) {
       index = max;
+    } else if (array[min] === element) {
+      index = min;
     } else {
       let mid = Math.floor((min + max) / 2);
       if (array[mid] > element) {
@@ -28,5 +30,5 @@ const binarySearch = (array, element) => {
 };
 
 console.log(
-  binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 5)
+  binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10)
 );
