@@ -17,12 +17,9 @@ const bfs = (graph, rootNode) => {
   // creating a queue to keep track of nodes to visit
   let queue = [rootNode];
 
-  //current node that we are traversing
-  let currentNode;
-
   // iterate while we have nodes in queue
   while (queue.length) {
-    currentNode = queue.shift();
+    const currentNode = queue.shift();
 
     //get all the nodes connected to current node
     const currentConnectedNodes = graph[currentNode];
@@ -50,12 +47,19 @@ const bfs = (graph, rootNode) => {
 // DJcency matrix graph
 // nxn -> represent n, numbe of vertices
 
-const exBFSGraph = [
-  [0, 1, 1, 1, 0],
-  [0, 0, 1, 0, 0],
-  [1, 1, 0, 0, 0],
-  [0, 0, 0, 1, 0],
-  [0, 1, 0, 0, 0],
+// const exBFSGraph = [
+//   [0, 1, 1, 1, 0],
+//   [0, 0, 1, 0, 0],
+//   [1, 1, 0, 0, 0],
+//   [0, 0, 0, 1, 0],
+//   [0, 1, 0, 0, 0],
+// ];
+
+const newbfsGraph = [
+  [0, 1, 1, 1],
+  [1, 0, 1, 0],
+  [1, 1, 0, 0],
+  [1, 0, 0, 0],
 ];
 
-console.log(bfs(exBFSGraph, 1));
+console.log(bfs(newbfsGraph, 1));
