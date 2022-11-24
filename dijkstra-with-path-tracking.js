@@ -32,7 +32,11 @@ const findShortedPathWithPathTracking = (sourceNode, endNode, graph) => {
   let distances = {};
   // setting the default distance for destination to Infinity as it will be always greater, easy to compare
   distances[endNode] = Infinity;
-  // setting the distance for neighour nodes
+
+  // setting distance for starting node to 0
+  distances[sourceNode] = 0;
+
+  // setting the distance for connected nodes to the starting node
   distances = Object.assign(distances, graph[sourceNode]);
 
   // creating hashmap to track path
@@ -101,3 +105,11 @@ const adjacencyList = {
 // console.log(fetchClosestNode({ e: 2, d: 9, b: 3 }, ["e"]));
 
 console.log(findShortedPathWithPathTracking("a", "d", adjacencyList));
+
+// const adjacencyList = {
+//   a: { b: 10, c: 5 },
+//   b: { d: 1 },
+//   c: { b: 3, d: 9, e: 2 },
+//   d: {},
+//   e: { a: 2 },
+// };
