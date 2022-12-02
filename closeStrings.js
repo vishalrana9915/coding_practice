@@ -13,7 +13,7 @@ const findDisplacedLetter = function (
   processed
 ) {
   let expectedMatch = word2_count[letter];
-
+  if (!expectedMatch) return false;
   let displacedLetter = null;
   for (let i in word1_count) {
     if (word1_count[i] == expectedMatch && !processed[i]) {
@@ -48,6 +48,8 @@ var closeStrings = function (word1, word2) {
 
   let word1_count = {};
   let word2_count = {};
+  let word1_set = new Set();
+  let word2_set = new Set();
   //get word count
   for (let i = 0; i < new_word1.length; i++) {
     if (word1_count[new_word1.charAt(i)]) {
@@ -55,12 +57,18 @@ var closeStrings = function (word1, word2) {
     } else {
       word1_count[new_word1.charAt(i)] = 1;
     }
+    word1_set.add(new_word1.charAt(i));
+    word2_set.add(new_word2.charAt(i));
 
     if (word2_count[new_word2.charAt(i)]) {
       word2_count[new_word2.charAt(i)] += 1;
     } else {
       word2_count[new_word2.charAt(i)] = 1;
     }
+  }
+
+  if (word1_set != word1_set) {
+    return false;
   }
   console.log("BEFORE _====>", { word1_count, word2_count });
 
@@ -93,6 +101,7 @@ var closeStrings = function (word1, word2) {
 
 console.log(closeStrings("aabbbc", "abbccc"));
 // console.log(closeStrings("a", "aa"));
+// console.log(closeStrings("uau", "ssx"));
 
 // we need to make sure that character need to have same order first
 // word1 = "cabbba", word2 = "abbccc"
